@@ -25,8 +25,14 @@ try:
 except ImportError:
     from django.utils.crypto import get_random_string
     from os import path
-    SECRET_KEY = get_random_string(50, 'abcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*(-_=+)')
-    with open(path.join(BASE_DIR, 'yatube', 'settings_secret_key.py'), 'w') as key_file:
+
+    CHAR_KIT = 'abcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*(-_=+)'
+    SECRET_KEY = get_random_string(50, CHAR_KIT)
+    with open(path.join(BASE_DIR,
+                        'yatube',
+                        'settings_secret_key.py'
+                        ), 'w'
+              ) as key_file:
         key_file.write("SECRET_KEY = '{key}'".format(key=SECRET_KEY))
 
 
@@ -60,10 +66,11 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'yatube.urls'
 
+TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [TEMPLATES_DIR],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
