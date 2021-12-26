@@ -28,7 +28,9 @@ except ImportError:
 
     CHAR_KIT = "abcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*(-_=+)"
     SECRET_KEY = get_random_string(50, CHAR_KIT)
-    with open(path.join(BASE_DIR, "yatube", "settings_secret_key.py"), "w") as key_file:
+    with open(
+        path.join(BASE_DIR, "yatube", "settings_secret_key.py"), "w"
+    ) as key_file:
         key_file.write("SECRET_KEY = '{key}'".format(key=SECRET_KEY))
 
 
