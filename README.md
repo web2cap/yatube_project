@@ -1,6 +1,7 @@
 # Yatube project
-## Created on Prakticum.Yandex
+This is the third stage in the Bloggers Social Network project series.
 
+Final repo: https://github.com/web2cap/hw05_final
 
 - Python 3.7
 - Django 2.2.19
